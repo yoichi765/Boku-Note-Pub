@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        <%= title %>
+    </title>
+    <!-- <link rel='stylesheet' href='stylesheets/reset.css' /> -->
+    <!-- <link rel='stylesheet' href='stylesheets/style.css' /> -->
+    <link rel='stylesheet' href='../Boku-Note/public/stylesheets/reset.css' />
+    <link rel='stylesheet' href='../Boku-Note/public/stylesheets/style.css' />
+    <script src="https://kit.fontawesome.com/b622e98138.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header id="psotsHeader">
+        <div id="userName">
+            こんにちは、<%= username %>さん
+        </div>
+    </header>
+    <main id="postsMain">
+        <% for (let i=0; i < result.length; i++) { %>
+            <div class="contentWrapper">
+                <div class="contentInnerWrapper">
+                    <div class="contentContainer">
+                        <%= result[i].post %>
+                    </div>
+                </div>
+            </div>
+            <div class="reactionWrapper">
+                <div class="reactionInnerWrapper">
+                    <div class="reactionContainer">
+                        <div class="thubmbs">
+                            <div class="thubmbs-icon">
+                                <i class="fa-regular fa-thumbs-up"></i>
+                            </div>
+                            <div class="thubmbs-count">
+                                <span>
+                                    <%= result[i].goods %>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="comment">
+                            <div class="comment-icon">
+                                <i class="fa-regular fa-comment"></i>
+                            </div>
+                            <div class="comment-count">
+                                <span>
+                                    <%= result[i].comments %>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% } %>
+    </main>
+</body>
+<!-- JavaScriptの設定 -->
+<script>
+    // Goodボタン押下処理
+    const thubmbsIconElements = document.querySelectorAll('.thubmbs-icon');
+    // 各要素に対してクリックイベントリスナーを設定
+    thubmbsIconElements.forEach((element, index) => {
+        element.addEventListener('click', (event) => {
+            const clickedElement = event.currentTarget; // クリックされた要素取得
+            const iconElement = clickedElement.children[0]; // アイコン要素取得
+            const thubmbsCountElement = clickedElement.parentNode.getElementsByTagName('span')[0]; // カウント要素取得
+
+            if (iconElement.classList.contains('fa-regular')) {
+                clickedElement.innerHTML = '<i class="fa-solid fa-thumbs-up"></i>'
+                thubmbsCountElement.innerHTML = Number(thubmbsCountElement.innerHTML) + 1
+            } else {
+                clickedElement.innerHTML = '<i class="fa-regular fa-thumbs-up"></i>'
+                thubmbsCountElement.innerHTML = Number(thubmbsCountElement.innerHTML) - 1
+            }
+        });
+    });
+</script>
+
+</html>

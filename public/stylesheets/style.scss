@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Klee+One&display=swap');
+
+body {
+    padding: 0;
+    font-family: 'Klee One', cursive;
+    background-color: #00B7FF;
+}
+
+header{
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid;
+}
+
+a {
+    color: #00B7FF;
+}
+
+mark.markRed {
+    background-color: red;
+    padding: 5px;
+}
+
+#postsMain {
+    .contentWrapper{
+        display: flex;
+        justify-content: center;
+        padding-top: 30px;
+        .contentInnerWrapper{
+            width: 90%;
+            background-color: #fff;
+            border: 1px solid #000000;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            border-radius: 5px;
+        }
+    }
+    .reactionWrapper{
+        display: flex;
+        justify-content: center;
+        .reactionInnerWrapper{
+            width: 50%;
+            font-size: 20px;
+            background-color: #e4e4e4;
+            border: 1px solid #000000;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            border-radius: 5px;
+            .reactionContainer{
+                display: flex;
+                justify-content: space-evenly;
+                .thubmbs{
+                    display: flex;
+                }
+                .comment{
+                    display: flex;
+                }
+            }
+        }
+    }
+
+}
